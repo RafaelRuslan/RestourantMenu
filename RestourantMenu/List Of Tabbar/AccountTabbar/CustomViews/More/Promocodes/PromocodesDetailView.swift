@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PromocodesDetailView: View {
-    @Binding var more: ProfileModel
+    @State private var promocode : String = ""
+    @State private var message: String = ""
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -16,10 +17,31 @@ struct PromocodesDetailView: View {
         ScrollView{
             VStack(spacing: 20) {
                 
-                TextField("Enter promocodes", text: $more.name)
+                Text("Enter Promocode")
+                    .font(.headline)
+                
+                TextField("Enter promocodes", text: $promocode)
                     .keyboardType(.default)
                     .textFieldStyle(.roundedBorder)
                     .padding()
+                
+                Button("Succeded"){
+                    if promocode.uppercased() == "SALAM2024" || promocode.lowercased() == "ruslan2023"{
+                        message = "Promocode accepted 🎉"
+                    }else{
+                        message = "wrong promocode ‼️"
+                    }
+                }
+                .padding()
+                .background(Color.green)
+                .foregroundStyle(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                
+                Text(message)
+                    .foregroundStyle(.gray)
+                    .padding()
+                
+                Spacer()
             }
         }
         .navigationBarBackButtonHidden()
@@ -37,7 +59,6 @@ struct PromocodesDetailView: View {
                 }
             }
         }
-        
     }
 }
 

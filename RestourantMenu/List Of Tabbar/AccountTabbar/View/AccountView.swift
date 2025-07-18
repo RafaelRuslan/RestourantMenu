@@ -27,7 +27,7 @@ struct AccountView: View {
     func moreDetailView(for item: Binding<ProfileModel>) -> some View{
         switch item.wrappedValue.icon{
         case "tag.fill":
-            PromocodesDetailView(more: item)
+            PromocodesDetailView()
         case "gear":
             SettingsView()
         case "i.circle":
