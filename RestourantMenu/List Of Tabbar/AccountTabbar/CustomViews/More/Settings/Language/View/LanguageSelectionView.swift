@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LanguageSelectionView: View {
     @Environment(\.dismiss) private var dismiss
-    @AppStorage("selectedLanguage") private var selectedLanguage: String = "Azerbaijan"
+    @ObservedObject var localizer = Localizer.shared
     
     let languages = [
         "Azerbaijani",
@@ -32,7 +32,7 @@ struct LanguageSelectionView: View {
     var body: some View {
         ScrollView{
             ZStack{
-                AngularGradient(colors: [.white, .white], center: .bottomTrailing, angle: .degrees(300))
+                LinearGradient(colors: [.white, .yellow], startPoint: .top, endPoint: .trailing)
                     .ignoresSafeArea()
                 
                 VStack(spacing: 16) {
@@ -44,18 +44,18 @@ struct LanguageSelectionView: View {
                             
                             Spacer()
                             
-                            Image(systemName: selectedLanguage == lang ? "largecircle.fill.circle" : "circle")
+                            Image(systemName: localizer.selectedLanguage == lang ? "largecircle.fill.circle" : "circle")
                                 .foregroundStyle(.blue)
                                 .imageScale(.large)
                                 .onTapGesture {
-                                    selectedLanguage = lang
+                                    localizer.selectedLanguage = lang
                                 }
                         }
                         .padding()
                         
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            selectedLanguage = lang
+                            localizer.selectedLanguage = lang
                         }
                     }
                     
