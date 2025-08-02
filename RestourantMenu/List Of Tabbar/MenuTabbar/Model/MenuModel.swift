@@ -18,7 +18,7 @@ enum MenuCategory: String, CaseIterable, Identifiable {
 }
 
 struct MenuModel: Identifiable, Equatable{
-    var id = UUID()
+    let id: UUID
     let imageName: String
     let name: String
     let originalPrice: Double

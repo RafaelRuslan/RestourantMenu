@@ -17,21 +17,22 @@ struct MenuItemRowView: View {
             Image(item.imageName)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 70, height: 70)
+                .frame(width: 50, height: 50)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             VStack(alignment: .leading, spacing: 4){
                 Text(item.name)
                     .font(.headline)
                 HStack{
                     if let discount = item.discountedPrice {
-                        Text("$\(item.originalPrice, specifier: "%.2f")")
+                        Text("\(item.originalPrice, format: .currency(code: "USD"))")
                             .strikethrough()
                             .foregroundStyle(.gray)
-                        Text("$\(discount, specifier: "%.2f")")
+                            .lineLimit(.max)
+                        Text("\(discount, format: .currency(code: "USD"))")
                             .foregroundStyle(.red)
                             .fontWeight(.bold)
                     }else{
-                        Text("$\(item.originalPrice, specifier: "%.2f")")
+                        Text("\(item.originalPrice, format: .currency(code: "USD"))")
                             .fontWeight(.bold)
                     }
                 }
@@ -49,10 +50,10 @@ struct MenuItemRowView: View {
                 Text("\(viewModel.items.first(where: { $0.id == item.id })?.amount ?? 0)")
                         .font(.title2)
                         .foregroundStyle(.black)
-                Button(action: {
+                Button {
                     viewModel.increment(for: item)
                     orderManager.addToOrder(item)
-                }) {
+                }label:{
                     Image(systemName: "plus.circle.fill")
                         .font(.title2)
                         .foregroundStyle(.green)
