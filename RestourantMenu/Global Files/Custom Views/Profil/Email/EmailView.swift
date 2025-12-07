@@ -1,0 +1,58 @@
+//
+//  EmailView.swift
+//  RestourantMenu
+//
+//  Created by Rafael Agayev on 13.07.25.
+//
+
+import SwiftUI
+
+struct EmailView: View {
+    @Binding var profile: ProfileModel
+    @Environment(\.dismiss) private var dismiss
+    
+    @AppStorage(.language) private var language = "az"
+
+    var body: some View {
+        ScrollView{
+            VStack(spacing: 20) {
+                
+                Text("Change email")
+                    .font(.headline)
+                
+                TextField("Enter mail", text: $profile.name)
+                    .keyboardType(.emailAddress)
+                    .textFieldStyle(.roundedBorder)
+                    .padding()
+                
+                Button{
+                    dismiss()
+                }label: {
+                    Text("Save")
+                        .infoStyle()
+                }
+                Spacer()
+            }
+            .navigationBarBackButtonHidden()
+            .toolbar{
+               toolbar
+            }
+        }
+    }
+    
+    @ToolbarContentBuilder
+    private var toolbar: some ToolbarContent{
+        ToolbarItem(placement: .principal) {
+            Text("E-Mail")
+                .font(.title)
+                .bold()
+        }
+        ToolbarItem(placement: .topBarLeading) {
+            Button{
+                dismiss()
+            }label: {
+                Image(systemName: "chevron.left")
+            }
+        }
+    }
+}
