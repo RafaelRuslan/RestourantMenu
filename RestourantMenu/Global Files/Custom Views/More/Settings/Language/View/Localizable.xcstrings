@@ -1,0 +1,789 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%@" : {
+
+    },
+    "%lld" : {
+
+    },
+    "♥️ Favorites: Tap the heart icon to save dishes you love." : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoritlər: hansı ki, siz ürək qoymusunuz"
+          }
+        }
+      }
+    },
+    "📦 Details: Tap a dish to view full information." : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detallar: hansı ki, siz həmən məhsula baxmaq istəmisiniz"
+          }
+        }
+      }
+    },
+    "📬 rafaretti2021@gmail.com" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "rafaretti2021@gmail.com"
+          }
+        }
+      }
+    },
+    "🔍 Search: Use the search bar to find dishes by name or ingredients." : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Axtarış: axtarış yerindən istifadə edərək ada və ya ingrediyentə görə"
+          }
+        }
+      }
+    },
+    "3.34.11" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3.34.11"
+          }
+        }
+      }
+    },
+    "About" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haqqında"
+          }
+        }
+      }
+    },
+    "About the App" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App haqqında"
+          }
+        }
+      }
+    },
+    "Account" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesab"
+          }
+        }
+      }
+    },
+    "Add an extra layer of protection to keep your account secure" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesabınızı qorumaq üçün əlavə təhlükəsizlik qatını əlavə edin"
+          }
+        }
+      }
+    },
+    "All rights reserved © 2025" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bütün hüquqlar qorunur 2025"
+          }
+        }
+      }
+    },
+    "Change email" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "email’inizi dəyişin"
+          }
+        }
+      }
+    },
+    "Change phone number" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Telefon nömrənizi dəyişin"
+          }
+        }
+      }
+    },
+    "Communication" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "əlaqə"
+          }
+        }
+      }
+    },
+    "Delete account" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesabınızı silin"
+          }
+        }
+      }
+    },
+    "Detail not found" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Məlumat tapılmadı"
+          }
+        }
+      }
+    },
+    "Developed by Rafael Agayev" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rafael Agayev tərəfindən yazılmışdır"
+          }
+        }
+      }
+    },
+    "Developer" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yazan"
+          }
+        }
+      }
+    },
+    "E-mail" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "email"
+          }
+        }
+      }
+    },
+    "E-Mail" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "email"
+          }
+        }
+      }
+    },
+    "E-mail: rafaretti2021@gmail.com" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "email: rafaretti2021@gmail.com"
+          }
+        }
+      }
+    },
+    "Enter" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daxil edin"
+          }
+        }
+      }
+    },
+    "Enter app" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App’ə daxil olun"
+          }
+        }
+      }
+    },
+    "Enter e-Mail..." : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-mail’inizi daxil edin"
+          }
+        }
+      }
+    },
+    "Enter E-Mail..." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-mail’inizi daxil edin"
+          }
+        }
+      }
+    },
+    "Enter mail" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-mail daxil edin"
+          }
+        }
+      }
+    },
+    "Enter new name..." : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yeni ad daxil edin"
+          }
+        }
+      }
+    },
+    "Enter Password..." : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yeni şifr daxil edin"
+          }
+        }
+      }
+    },
+    "Enter phone number" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mobil nömrənizi daxil edin"
+          }
+        }
+      }
+    },
+    "Enter Promocode" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Promokodu daxil edin"
+          }
+        }
+      }
+    },
+    "Enter promocodes" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Promokodları daxil edin"
+          }
+        }
+      }
+    },
+    "Help" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kömək"
+          }
+        }
+      }
+    },
+    "History" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tarixçə"
+          }
+        }
+      }
+    },
+    "Home" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ana səhifə"
+          }
+        }
+      }
+    },
+    "If something isn't working, check your internet connection or contact us." : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "əgər sizdə nəsə yolunda getməzsə, internetinizi yoxlayın və ya bizimlə əlaqə saxlayın"
+          }
+        }
+      }
+    },
+    "If you're not a user of your other products, we'll send you offers we think you might enjoy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Əgər digər məhsullarımızın istifadəçisi deyilsinizsə, sizə xoşunuza gələ biləcək təkliflər göndərəcəyik."
+          }
+        }
+      }
+    },
+    "Lana Dining & Lounge" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lana qəlyanaltı və lanç"
+          }
+        }
+      }
+    },
+    "Lana's Preferences" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lana’nın üstünlükləri"
+          }
+        }
+      }
+    },
+    "Language" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dil"
+          }
+        }
+      }
+    },
+    "Languages" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dillər"
+          }
+        }
+      }
+    },
+    "Linkedin: Rafael Agayev" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Linkedin: Rafael Agayev"
+          }
+        }
+      }
+    },
+    "Login" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giriş edin"
+          }
+        }
+      }
+    },
+    "Logout" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çıxış edin"
+          }
+        }
+      }
+    },
+    "Menu" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        }
+      }
+    },
+    "More" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Digər məlumatlar"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ad"
+          }
+        }
+      }
+    },
+    "Need Help?" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Köməyə ehtiyacınız var?"
+          }
+        }
+      }
+    },
+    "No orders yet." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Məhsul tapılmadı"
+          }
+        }
+      }
+    },
+    "No results found..." : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Heç bir nəticə tapılmadı…"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yaxşı"
+          }
+        }
+      }
+    },
+    "Order" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Məhsul"
+          }
+        }
+      }
+    },
+    "Phone Number" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Telefon nömrəsi"
+          }
+        }
+      }
+    },
+    "Price: %@" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dəyər"
+          }
+        }
+      }
+    },
+    "Privacy Policy" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Məxfilik Siyasəti"
+          }
+        }
+      }
+    },
+    "Profil" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
+          }
+        }
+      }
+    },
+    "Promocode accepted 🎉" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Promokod doğrudur 🎉"
+          }
+        }
+      }
+    },
+    "Promocode Page" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Promokod səhifəsi"
+          }
+        }
+      }
+    },
+    "Promocodes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Promokodlar"
+          }
+        }
+      }
+    },
+    "Promotions and tips" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aksiyalar və məsləhətlər"
+          }
+        }
+      }
+    },
+    "Push Notifications" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildirişləri açmaq"
+          }
+        }
+      }
+    },
+    "Restourant Menu - This app is made for Lana Dining and Launch" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restoran menu - bu app “Lana Dining and Launch” üçün hazırlanmışdır"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yadda saxlamaq"
+          }
+        }
+      }
+    },
+    "Search" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Axtarış"
+          }
+        }
+      }
+    },
+    "Search menu ..." : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Axtarış menüsü"
+          }
+        }
+      }
+    },
+    "senior Ruslan" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cənab Ruslan"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "əlfəcinlər"
+          }
+        }
+      }
+    },
+    "Success" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uğurlu"
+          }
+        }
+      }
+    },
+    "Terms of Use" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İstifadəçi qaydaları"
+          }
+        }
+      }
+    },
+    "This app allows you to browse our full restourant menu, view descriptions, and mark your favorite dishes." : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu tətbiq sizə restoranımızın tam menyusuna baxmağa, təsvirləri öyrənməyə və sevimli yeməklərinizi işarələməyə imkan verir."
+          }
+        }
+      }
+    },
+    "Total price:" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ümumi dəyər"
+          }
+        }
+      }
+    },
+    "Turn on" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yandırmaq"
+          }
+        }
+      }
+    },
+    "Turn on two-step verification" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İki mərhələli təsdiqləməni aktivləşdirin"
+          }
+        }
+      }
+    },
+    "Two-step verification" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İki mərhələli təsdiqləmə"
+          }
+        }
+      }
+    },
+    "Using the App" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applikasiyanın istifadəsi"
+          }
+        }
+      }
+    },
+    "Version" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versiya"
+          }
+        }
+      }
+    },
+    "Welcome !" : {
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xoş gəlmisiniz!"
+          }
+        }
+      }
+    },
+    "Wrong" : {
+
+    },
+    "Wrong promocode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "az" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yalnış passvord"
+          }
+        }
+      }
+    },
+    "x%lld" : {
+
+    }
+  },
+  "version" : "1.1"
+}

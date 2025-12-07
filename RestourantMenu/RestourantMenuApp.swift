@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import UserNotifications
 
 @main
 struct RestourantMenuApp: App {
@@ -15,6 +16,8 @@ struct RestourantMenuApp: App {
             let config = ModelConfiguration(schema: schema)
             return try! ModelContainer(for: schema, configurations: [config])
         }()
+    
+    @AppStorage(.language) private var language = "az"
     var body: some Scene {
         WindowGroup {
             NavigationStack{
@@ -23,6 +26,7 @@ struct RestourantMenuApp: App {
                     .environmentObject(OrderViewModel())
                     .modelContainer(for: [SwiftDataModel.self])
                     .environment(\.modelContext, sharedModelContainer.mainContext)
+                    .environment(\.locale, .init(identifier: language))
             }
         }
     }
