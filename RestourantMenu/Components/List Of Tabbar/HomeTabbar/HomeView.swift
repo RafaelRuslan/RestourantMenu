@@ -10,8 +10,9 @@ import SwiftUI
 struct HomeView: View {
     
     @AppStorage(.language) private var language = "az"
-
     
+    @EnvironmentObject private var loginVM: LoginViewModel
+
     var body: some View {
         ZStack{
             RadialGradient(colors: [.mint, .white], center: .top, startRadius: 20, endRadius: 600)
@@ -20,7 +21,7 @@ struct HomeView: View {
                 HStack{
                     Image(systemName: "hand.draw.fill")
                         .foregroundStyle(.gray)
-                    Text("senior Ruslan")
+                    Text("\(loginVM.name)")
                         .italic()
                         .kerning(2)
                         .bold()
