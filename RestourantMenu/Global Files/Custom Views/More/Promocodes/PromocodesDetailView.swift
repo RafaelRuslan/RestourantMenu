@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct PromocodesDetailView: View {
+    
     @State private var promocode : String = ""
+    
     @State private var message: String = ""
+    
     @Environment(\.dismiss) private var dismiss
     
     @State private var enterButton: Bool = false
-    
-    @AppStorage(.language) private var language = "az"
-
     
     var body: some View {
         

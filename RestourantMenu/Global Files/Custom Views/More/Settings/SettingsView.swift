@@ -9,19 +9,12 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var navigate = false
-    @State private var profile = LogModel()
     
-    @AppStorage(.language) private var language = "az"
-
+    @Binding var loginVM: LoginViewModel
     
     var body: some View {
             Form{
                 List{
-                    NavigationLink(destination: LanguageSelectionView()) {
-                        Text("Language")
-                            .font(.title2)
-                    }
                     NavigationLink(destination: CommunicationView()){
                         Text("Communication")
                             .font(.title2)
@@ -34,26 +27,15 @@ struct SettingsView: View {
                 Section(""){
                     List{
                         Button{
-                            navigate = true
-                        }label: {
-                            Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
-                                .button_Style()
-                                .buttonStyle(.borderedProminent)
-                        }
-                        Button{
-                            
+                            loginVM.deleteUser()
                         }label: {
                             Label("Delete account", systemImage: "trash.fill")
                                 .button_Style()
                             
                         }
                     }
-                    
                 }
                 
-            }
-            .navigationDestination(isPresented: $navigate) {
-                LogoutView()
             }
             .navigationBarBackButtonHidden()
             .toolbar{
@@ -77,6 +59,6 @@ struct SettingsView: View {
 }
     
 
-#Preview {
-    SettingsView()
-}
+//#Preview {
+//    SettingsView()
+//}

@@ -10,8 +10,6 @@ import SwiftUI
 struct HelpView: View {
     @Environment(\.dismiss) private var dismiss
     
-    @AppStorage(.language) private var language = "az"
-
     var body: some View {
         List{
             Section(header: Text("About the App")) {

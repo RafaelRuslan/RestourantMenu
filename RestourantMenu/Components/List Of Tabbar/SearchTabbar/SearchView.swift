@@ -10,9 +10,6 @@ import SwiftUI
 struct SearchView: View {
     @StateObject var viewModel = MenuViewModel()
     
-    @AppStorage(.language) private var language = "az"
-
-    
     var body: some View {
         NavigationView {
             List{

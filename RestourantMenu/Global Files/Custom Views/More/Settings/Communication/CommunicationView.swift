@@ -12,7 +12,7 @@ struct CommunicationView: View {
     @State private var isPushOn = false
     @Environment(\.dismiss) private var dismiss
     
-    @AppStorage(.language) private var language = "az"
+  
     var body: some View {
         
         Form{

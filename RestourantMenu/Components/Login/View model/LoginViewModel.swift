@@ -5,7 +5,7 @@
 //  Created by Rafael Agayev on 16.12.25.
 //
 
-import Foundation
+import SwiftUI
 import Firebase
 import FirebaseAuth
 
@@ -25,7 +25,7 @@ class LoginViewModel: ObservableObject {
     
     @Published var showPassword = false
     
-    @Published var name: String = ""
+    @AppStorage("user_name") var name: String = ""
     
     
     init(){
@@ -94,5 +94,44 @@ class LoginViewModel: ObservableObject {
             self.alertMessage = error.localizedDescription
             self.showAlert = true
         }
+    }
+    
+    func deleteUser(password: String? = nil){
+        guard let user = Auth.auth().currentUser else { return }
+        
+        if let password = password, let email = user.email{
+            let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+            user.reauthenticate(with: credential){ [weak self] _, error in
+                if let error = error{
+                    DispatchQueue.main.async {
+                        self?.alertMessage = "Reauthentication failed: \(error.localizedDescription)"
+                        self?.showAlert = true
+                    }
+                    return
+                }
+                self?.performDelete(user: user)
+                
+                
+            }
+        }else {
+            performDelete(user: user)
+        }
+    }
+    
+    private func performDelete(user: User){
+        user.delete { [weak self] error in
+            DispatchQueue.main.async {
+                if let error = error{
+                    self?.alertMessage = "Delete failed: \(error.localizedDescription)"
+                    self?.showAlert = true
+                }else {
+                    self?.user = nil
+                    self?.name = ""
+                    self?.isAuthorized = false
+                    print("Deleted user successfully")
+                }
+            }
+        }
+        
     }
 }
