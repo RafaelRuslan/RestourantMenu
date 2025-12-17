@@ -10,11 +10,11 @@ import SwiftData
 
 struct HistoryView: View {
     @Environment(\.dismiss) private var dismiss
+    
     @Environment(\.modelContext) private var modelContext
-    
-    @AppStorage(.language) private var language = "az"
-    
+        
     @Query(sort: \SwiftDataModel.date, order: .reverse) var orders: [SwiftDataModel]
+    
     var body: some View {
         List{
             ForEach(orders){ order in

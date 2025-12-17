@@ -12,8 +12,6 @@ struct LogoutView: View {
     
     @StateObject var vm = LogoutViewModel()
     
-    @AppStorage(.language) private var language = "az"
-
     var body: some View {
         VStack(alignment: .center, spacing: 8){
             TextField("Enter e-Mail...", text: $vm.profile.name)

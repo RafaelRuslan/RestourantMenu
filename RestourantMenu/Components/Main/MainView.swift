@@ -13,10 +13,12 @@ struct MainView: View {
     @Environment(\.modelContext) var context
     @State private var index = 0
     
-    @EnvironmentObject var loginVM: LoginViewModel
+    let loginVM: LoginViewModel
     
-    @AppStorage(.language) private var language = "az"
-
+    init(loginVM: LoginViewModel){
+        self.loginVM = loginVM
+    }
+    
     var body: some View {
             TabView(selection: $index){
                 HomeView()
@@ -52,7 +54,7 @@ struct MainView: View {
                               systemImage: "cart.fill.badge.plus"
                         )
                     }
-                AccountView()
+                AccountView(loginVM: loginVM)
                     .tag(4)
                     .tabItem {
                         Label("Account",
@@ -72,14 +74,14 @@ struct MainView: View {
                 loginVM.logoutUser()
             }label: {
                 Image(systemName: "rectangle.portrait.and.arrow.forward")
-                    .foregroundStyle(.colorBlack)
+                    .fontModifier(size: 20, weight: .semibold, foregroundColor: .colorRedOpacity)
             }
         }
     }
 }
 
 #Preview {
-    MainView()
+    MainView(loginVM: LoginViewModel())
         .environmentObject(OrderViewModel())
         .environmentObject(LoginViewModel())
 }

@@ -11,9 +11,6 @@ struct MenuItemRowView: View {
     @EnvironmentObject var orderManager: OrderViewModel
     var item: MenuModel
     @ObservedObject var viewModel: MenuViewModel
-    
-    @AppStorage(.language) private var language = "az"
-
    
     var body: some View {
         HStack(spacing: 16) {

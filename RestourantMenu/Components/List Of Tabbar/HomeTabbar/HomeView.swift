@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    @AppStorage(.language) private var language = "az"
-    
+        
     @EnvironmentObject private var loginVM: LoginViewModel
 
     var body: some View {
@@ -20,7 +18,7 @@ struct HomeView: View {
             VStack(alignment: .center){
                 HStack{
                     Image(systemName: "hand.draw.fill")
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.colorAccent)
                     Text("\(loginVM.name)")
                         .italic()
                         .kerning(2)

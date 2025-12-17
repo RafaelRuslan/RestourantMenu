@@ -9,14 +9,17 @@ import SwiftUI
 import SwiftData
 
 struct OrderView: View {
+    
     @Environment(\.modelContext) private var modelContext
+    
     @EnvironmentObject private var order : OrderViewModel
+    
     @State private var navigateToHistory = false
+    
     @State private var isSelected = false
+    
     @Query private var model: [SwiftDataModel]
     
-    @AppStorage(.language) private var language = "az"
-
     
     var body: some View {
         NavigationStack{

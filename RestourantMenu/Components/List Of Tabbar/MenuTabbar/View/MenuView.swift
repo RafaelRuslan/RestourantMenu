@@ -18,9 +18,6 @@ struct MenuView: View {
     
     @State private var isActive = false
     
-    @AppStorage(.language) private var language = "az"
-
-    
     var body: some View {
         
             ZStack{
@@ -31,11 +28,11 @@ struct MenuView: View {
                                 Text(category.rawValue)
                                     .padding(.vertical, 8)
                                     .padding(.horizontal, 16)
-                                    .background(selectedCategory == category ? Color.blue : Color.black.opacity(0.5))
-                                    .foregroundColor(.white)
-                                    .cornerRadius(12)
+                                    .background(selectedCategory == category ? Color.colorBlue : Color.colorBlack.opacity(0.5))
+                                    .foregroundStyle(.colorWhite)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
                                     .onTapGesture{
-                                        withAnimation(.interactiveSpring(duration: 3.45)) {
+                                        withAnimation(.interactiveSpring(duration: 1.45)) {
                                             selectedCategory = category
                                         }
                                     }

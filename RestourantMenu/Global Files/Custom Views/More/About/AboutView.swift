@@ -10,8 +10,6 @@ import SwiftUI
 struct AboutView: View {
     @Environment(\.dismiss) private var dismiss
     
-    @AppStorage(.language) private var language = "az"
-
     var body: some View {
         Form{
             Section(header: Text("About the App")) {

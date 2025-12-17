@@ -9,6 +9,12 @@ import SwiftUI
 
 struct AccountView: View {
     
+    @State var loginVM: LoginViewModel
+    
+//    init(loginVM: LoginViewModel){
+//        self.loginVM = loginVM
+//    }
+    
     @ViewBuilder
     func detailView(for item: Binding<ProfileModel>) -> some View{
         switch item.wrappedValue.icon{
@@ -29,7 +35,7 @@ struct AccountView: View {
         case "tag.fill":
             PromocodesDetailView()
         case "gear":
-            SettingsView()
+            SettingsView(loginVM: $loginVM)
         case "i.circle":
             AboutView()
         case "questionmark.circle":
@@ -53,7 +59,6 @@ struct AccountView: View {
         ProfileModel(icon: "questionmark.circle", name: "Help")
     ]
     
-    @AppStorage(.language) private var language = "az"
     
     var body: some View {
         
@@ -119,6 +124,6 @@ struct AccountView: View {
     }
 }
 
-#Preview {
-    AccountView()
-}
+//#Preview {
+//    AccountView()
+//}
