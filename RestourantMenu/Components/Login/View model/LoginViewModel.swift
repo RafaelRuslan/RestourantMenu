@@ -1,0 +1,98 @@
+//
+//  LoginViewModel.swift
+//  RestourantMenu
+//
+//  Created by Rafael Agayev on 16.12.25.
+//
+
+import Foundation
+import Firebase
+import FirebaseAuth
+
+class LoginViewModel: ObservableObject {
+    
+    @Published var email: String = ""
+    
+    @Published var password: String = ""
+    
+    @Published var showAlert: Bool = false
+    
+    @Published var alertMessage: String = ""
+    
+    @Published var user: User? = nil
+    
+    @Published var isAuthorized: Bool = false
+    
+    @Published var showPassword = false
+    
+    @Published var name: String = ""
+    
+    
+    init(){
+        self.user = Auth.auth().currentUser
+        if let user = self.user {
+            
+            isAuthorized = true
+        }else {
+            
+            isAuthorized = false
+        }
+        Auth.auth().addStateDidChangeListener { _, user in
+            DispatchQueue.main.async {
+                self.user = user
+                self.isAuthorized = user != nil
+            }
+        }
+    }
+    
+    func loginUser() {
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
+            DispatchQueue.main.async {
+                
+                if let error = error {
+                    
+                    self?.alertMessage = error.localizedDescription
+                    self?.showAlert = true
+                } else if let user = result?.user {
+                   
+                    self?.user = user
+                    self?.email = user.email ?? ""
+                    self?.isAuthorized = true
+                }
+            }
+        }
+    }
+    
+    func registerUser() {
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
+            guard let self else {return}
+            DispatchQueue.main.async {
+                
+                if let error = error {
+                    
+                    self.alertMessage = error.localizedDescription
+                    self.showAlert = true
+                } else if let user = result?.user {
+                    
+                    self.user = user
+                   
+                    self.email = user.email ?? ""
+                    self.isAuthorized = true
+                }
+            }
+        }
+    }
+    
+    func logoutUser(){
+        do{
+            try Auth.auth().signOut()
+            self.user = nil
+            self.isAuthorized = false
+            print("Logout successful")
+        }catch{
+            print("Logout failed: \(error.localizedDescription)")
+            self.alertMessage = error.localizedDescription
+            self.showAlert = true
+        }
+    }
+}

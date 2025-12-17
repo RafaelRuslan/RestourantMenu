@@ -211,6 +211,9 @@
         }
       }
     },
+    "Email" : {
+
+    },
     "Enter" : {
       "localizations" : {
         "az" : {
@@ -515,6 +518,9 @@
         }
       }
     },
+    "Password" : {
+
+    },
     "Phone Number" : {
       "localizations" : {
         "az" : {
@@ -524,6 +530,9 @@
           }
         }
       }
+    },
+    "Please sign in" : {
+
     },
     "Price: %@" : {
       "localizations" : {
@@ -607,6 +616,9 @@
         }
       }
     },
+    "Register" : {
+
+    },
     "Restourant Menu - This app is made for Lana Dining and Launch" : {
       "localizations" : {
         "az" : {
@@ -647,7 +659,11 @@
         }
       }
     },
+    "Select your name" : {
+
+    },
     "senior Ruslan" : {
+      "extractionState" : "stale",
       "localizations" : {
         "az" : {
           "stringUnit" : {
@@ -666,6 +682,9 @@
           }
         }
       }
+    },
+    "Sign up" : {
+
     },
     "Success" : {
       "localizations" : {
@@ -766,6 +785,9 @@
           }
         }
       }
+    },
+    "Welcome to Restourant Menu" : {
+
     },
     "Wrong" : {
 

@@ -13,12 +13,15 @@ struct MainView: View {
     @Environment(\.modelContext) var context
     @State private var index = 0
     
+    @EnvironmentObject var loginVM: LoginViewModel
+    
     @AppStorage(.language) private var language = "az"
 
     var body: some View {
             TabView(selection: $index){
                 HomeView()
                     .tag(0)
+                    .environmentObject(loginVM)
                     .tabItem{
                         Label("Home",
                               systemImage: "house.fill"
@@ -57,10 +60,26 @@ struct MainView: View {
                     )
             }
         }
+            .navigationBarBackButtonHidden()
+            .toolbar {
+                toolbar
+            }
+    }
+    @ToolbarContentBuilder
+    private var toolbar: some ToolbarContent{
+        ToolbarItem(placement: .topBarTrailing) {
+            Button{
+                loginVM.logoutUser()
+            }label: {
+                Image(systemName: "rectangle.portrait.and.arrow.forward")
+                    .foregroundStyle(.colorBlack)
+            }
+        }
     }
 }
 
 #Preview {
     MainView()
         .environmentObject(OrderViewModel())
+        .environmentObject(LoginViewModel())
 }
