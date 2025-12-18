@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct PhoneDetailView: View {
-    @Binding var profile: ProfileModel
+    
+    @Binding var phone: String
+    
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ScrollView{
             VStack(spacing: 20) {
-                Text("Change phone number")
-                    .font(.title2)
-                
-                TextField("Enter phone number", text: $profile.name)
+                TextField("Enter phone number", text: $phone)
                     .keyboardType(.phonePad)
                     .textFieldStyle(.roundedBorder)
-                    .padding()
                 Button{
                     dismiss()
                 }label:{

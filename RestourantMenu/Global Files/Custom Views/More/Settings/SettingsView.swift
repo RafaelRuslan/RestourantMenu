@@ -10,7 +10,11 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     
-    @Binding var loginVM: LoginViewModel
+    let loginVM: LoginViewModel
+    
+    init(loginVM: LoginViewModel) {
+        self.loginVM = loginVM
+    }
     
     var body: some View {
             Form{

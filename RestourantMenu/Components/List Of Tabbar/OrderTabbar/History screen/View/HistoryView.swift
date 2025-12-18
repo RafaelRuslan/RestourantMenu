@@ -12,6 +12,12 @@ struct HistoryView: View {
     @Environment(\.dismiss) private var dismiss
     
     @Environment(\.modelContext) private var modelContext
+    
+    let orderVM: OrderViewModel
+    
+    init(orderVM: OrderViewModel) {
+        self.orderVM = orderVM
+    }
         
     @Query(sort: \SwiftDataModel.date, order: .reverse) var orders: [SwiftDataModel]
     
@@ -57,20 +63,19 @@ struct HistoryView: View {
         }
     }
         
-    private func deleteItems(at offsets: IndexSet){
-        for index in offsets{
-            let orderDelete = orders[index]
-            modelContext.delete(orderDelete)
+    private func deleteItems(at offsets: IndexSet) {
+        for index in offsets {
+            let order = orders[index]
+            orderVM.deleteOrder(order, modelContext: modelContext)
         }
-        do{
-            try? modelContext.save()
-        }
+        dismiss()
     }
+    
     @ToolbarContentBuilder
     private var toolbar: some ToolbarContent{
         ToolbarItem(placement: .principal) {
             Text("History")
-                .font(.title)
+                .font(.title2)
                 .bold()
         }
         ToolbarItem(placement: .topBarLeading) {

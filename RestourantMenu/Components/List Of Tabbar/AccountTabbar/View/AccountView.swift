@@ -9,120 +9,137 @@ import SwiftUI
 
 struct AccountView: View {
     
-    @State var loginVM: LoginViewModel
+    @StateObject var loginVM = LoginViewModel()
     
-//    init(loginVM: LoginViewModel){
-//        self.loginVM = loginVM
-//    }
-    
-    @ViewBuilder
-    func detailView(for item: Binding<ProfileModel>) -> some View{
-        switch item.wrappedValue.icon{
-        case "person.fill":
-            NameDetailView(profile: item)
-        case "phone.fill":
-            PhoneDetailView(profile: item)
-        case "mail.fill":
-            EmailView(profile: item)
-        default:
-            Text("Detail not found")
-        }
-    }
-    
-    @ViewBuilder
-    func moreDetailView(for item: Binding<ProfileModel>) -> some View{
-        switch item.wrappedValue.icon{
-        case "tag.fill":
-            PromocodesDetailView()
-        case "gear":
-            SettingsView(loginVM: $loginVM)
-        case "i.circle":
-            AboutView()
-        case "questionmark.circle":
-            HelpView()
-        default:
-            Text("Detail not found")
-        }
-    }
-    
-   
-    @State private var profil : [ProfileModel] = [
-        ProfileModel(icon: "person.fill", name: "Ruslan Agayev"),
-        ProfileModel(icon: "phone.fill", name: "+1230292930"),
-        ProfileModel(icon: "mail.fill", name: "rafaretti2021@gmail.com")
-    ]
-    
-    @State private var more : [ProfileModel] = [
-        ProfileModel(icon: "tag.fill", name: "Promocodes"),
-        ProfileModel(icon: "gear", name: "Settings"),
-        ProfileModel(icon: "i.circle", name: "About..."),
-        ProfileModel(icon: "questionmark.circle", name: "Help")
-    ]
-    
+    @State private var path = NavigationPath()
     
     var body: some View {
-        
-            ZStack {
-                AngularGradient(colors: [.black.opacity(0.5), .black], center: .bottomLeading)
-                    .ignoresSafeArea()
+        NavigationStack(path: $path) {
+            List {
+                Section("Profil") {
+                    Button {
+                        path.append(AccountDestination.name)
+                    }label: {
+                        HStack{
+                            Image(systemName: "person.fill")
+                                .font(.title3)
+                            Text(loginVM.name)
+                                .font(.title3)
+                                .foregroundStyle(.colorBlack)
+                        }
+                    }
+                    Button {
+                        path.append(AccountDestination.phone)
+                    }label: {
+                        HStack{
+                            Image(systemName: "phone.fill")
+                                .font(.title3)
+                            Text(loginVM.phone)
+                                .font(.title3)
+                                .foregroundStyle(.colorBlack)
+                        }
+                    }
+                       
+
+                    Button{
+                        path.append(AccountDestination.email)
+                    }label: {
+                        HStack{
+                            Image(systemName: "person.fill")
+                                .font(.title3)
+                            Text(loginVM.email)
+                                .font(.title3)
+                                .foregroundStyle(.colorBlack)
+                        }
+                    }
+                }
                 
-                VStack {
-                    List {
-                        Section("Profil") {
-                            ForEach(profil.indices, id: \.self) { item in
-                                NavigationLink(destination: detailView(for: $profil[item]))
-                                {
-                                    HStack {
-                                        Image(systemName: profil[item].icon)
-                                            .foregroundStyle(.blue)
-                                            .font(.title2)
-                                        Text(profil[item].name)
-                                            .font(.title2)
-                                    }
-                                }
-                            }
+                Section("More") {
+                    Button{
+                        path.append(AccountDestination.promocodes)
+                    }label: {
+                        HStack{
+                            Image(systemName: "rectangle.and.pencil.and.ellipsis")
+                                .font(.title3)
+                            Text("Promocodes")
+                                .font(.title3)
+                                .foregroundStyle(.colorBlack)
                         }
-                        Section("More") {
-                            ForEach(more.indices, id: \.self){ item in
-                                NavigationLink(destination: moreDetailView(for: $more[item])){
-                                    HStack{
-                                        Image(systemName: more[item].icon)
-                                            .infoStyle()
-                                        Text(more[item].name)
-                                            .font(.title2)
-                                        Spacer()
-                                    }
-                                }
-                            }
+                    }
+
+                    Button {
+                        path.append(AccountDestination.settings)
+                    }label: {
+                        HStack{
+                            Image(systemName: "gear")
+                                .font(.title3)
+                            Text("Settings")
+                                .font(.title3)
+                                .foregroundStyle(.colorBlack)
+                        }
+                    }
+
+
+                    Button {
+                        path.append(AccountDestination.about)
+                    }label: {
+                        HStack{
+                            Image(systemName: "newspaper.fill")
+                                .font(.title3)
+                            Text("About")
+                                .font(.title3)
+                                .foregroundStyle(.colorBlack)
+                        }
+                    }
+
+                    Button{
+                        path.append(AccountDestination.help)
+                    }label: {
+                        HStack{
+                            Image(systemName: "questionmark.circle.fill")
+                                .font(.title3)
+                            Text("Help")
+                                .font(.title3)
+                                .foregroundStyle(.colorBlack)
                         }
                     }
                 }
-                GeometryReader { metric in
-                    VStack{
-                        Spacer()
-                        Text("All rights reserved © 2025")
-                            .infoStyle()
-                            .frame(width: metric.size.width)
-                            .padding(.bottom, 20)
-                    }
-                    .frame(width: metric.size.width, height: metric.size.height)
+            }
+            .navigationDestination(for: AccountDestination.self) { destination in
+                switch destination {
+                case .name:
+                    NameDetailView(name: $loginVM.name)
+                case .phone:
+                    PhoneDetailView(phone: $loginVM.phone)
+                case .email:
+                    EmailView(email: $loginVM.email)
+                case .promocodes:
+                    PromocodesDetailView()
+                case .settings:
+                    SettingsView(loginVM: loginVM)
+                case .about:
+                    AboutView()
+                case .help:
+                    HelpView()
                 }
-                .toolbar {
-                    toolbar
-                }
-        }
-        
-    }
-    
-    @ToolbarContentBuilder
-    private var toolbar: some ToolbarContent{
-        ToolbarItem(placement: .principal) {
-            Text("Settings")
-                .font(.title)
-                .bold()
+            }
+            .navigationTitle("Account")
         }
     }
 }
+
+extension AccountView{
+    enum AccountDestination: Hashable{
+        case name
+        case email
+        case phone
+        case promocodes
+        case settings
+        case about
+        case help
+    }
+}
+
 
 //#Preview {
 //    AccountView()

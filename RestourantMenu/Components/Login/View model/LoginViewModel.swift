@@ -27,6 +27,8 @@ class LoginViewModel: ObservableObject {
     
     @AppStorage("user_name") var name: String = ""
     
+    @Published var phone: String = "1234334"
+    
     
     init(){
         self.user = Auth.auth().currentUser
@@ -41,6 +43,7 @@ class LoginViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.user = user
                 self.isAuthorized = user != nil
+                self.email = user?.email ?? ""
             }
         }
     }

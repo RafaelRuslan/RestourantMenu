@@ -21,13 +21,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct RestourantMenuApp: App {
-    var sharedModelContainer: ModelContainer = {
-            let schema = Schema([SwiftDataModel.self])
-            let config = ModelConfiguration(schema: schema)
-            return try! ModelContainer(for: schema, configurations: [config])
-        }()
+    
+    let container: ModelContainer = {
+           let schema = Schema([SwiftDataModel.self])
+           let config = ModelConfiguration(schema: schema)
+           return try! ModelContainer(for: schema, configurations: [config])
+       }()
         
     @StateObject private var loginVM = LoginViewModel()
+    
+    @StateObject private var orderVM = OrderViewModel()
+    
+    @State private var profile: ProfileModel = ProfileModel(icon: "phone", name: "Mail")
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var delegate
     
@@ -35,15 +40,13 @@ struct RestourantMenuApp: App {
         WindowGroup {
             NavigationStack{
                 if loginVM.isAuthorized{
-                    MainView(loginVM: loginVM)
-                        .environmentObject(MenuViewModel())
-                        .environmentObject(OrderViewModel())
-                        .modelContainer(for: [SwiftDataModel.self])
-                        .environment(\.modelContext, sharedModelContainer.mainContext)
+                    MainView(loginVM: loginVM, orderVM: orderVM, profile: profile)
+                        .modelContainer(container)
                         .environmentObject(loginVM)
                 }else {
                    LoginView()
                         .environmentObject(loginVM)
+                        .environment(orderVM)
                 }
             }
            

@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct MenuView: View {
-    @EnvironmentObject var orderManager: OrderViewModel
+//    @EnvironmentObject var orderManager: OrderViewModel
+    
+    let orderVM: OrderViewModel
+    
+    init(orderVM: OrderViewModel) {
+        self.orderVM = orderVM
+    }
     
     @StateObject private var viewModel = MenuViewModel()
     
@@ -49,7 +55,7 @@ struct MenuView: View {
                         LazyVStack{
                             ForEach(viewModel.items.filter { $0.category == selectedCategory }) { item in
                                 
-                                MenuItemRowView(item: item, viewModel: viewModel)
+                                MenuItemRowView(orderVM: orderVM, item: item, viewModel: viewModel)
                                     .padding(.horizontal)
                                     .transition(.move(edge: .trailing))
                             }
@@ -67,14 +73,14 @@ struct MenuView: View {
     }
     @ToolbarContentBuilder
     private var toolbar: some ToolbarContent{
-        ToolbarItem(placement: .topBarTrailing) {
-            Button{
-                
-            }label:{
-                Image(systemName: "slider.horizontal.3")
-                    .resizable()
-            }
-        }
+//        ToolbarItem(placement: .topBarTrailing) {
+//            Button{
+//                
+//            }label:{
+//                Image(systemName: "slider.horizontal.3")
+//                    .resizable()
+//            }
+//        }
         
         ToolbarItem(placement: .principal) {
             Text("Lana Dining & Lounge")
@@ -86,6 +92,6 @@ struct MenuView: View {
     }
 }
 
-#Preview {
-    MenuView()
-}
+//#Preview {
+//    MenuView()
+//}

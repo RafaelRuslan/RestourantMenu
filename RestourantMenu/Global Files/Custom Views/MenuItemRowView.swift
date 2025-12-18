@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct MenuItemRowView: View {
-    @EnvironmentObject var orderManager: OrderViewModel
+    
+    let orderVM: OrderViewModel
     var item: MenuModel
     @ObservedObject var viewModel: MenuViewModel
+    
+    init(orderVM: OrderViewModel, item: MenuModel, viewModel: MenuViewModel) {
+        self.orderVM = orderVM
+        self.item = item
+        self.viewModel = viewModel
+    }
    
     var body: some View {
         HStack(spacing: 16) {
@@ -47,7 +54,7 @@ struct MenuItemRowView: View {
                         .foregroundStyle(.black)
                 Button {
                     viewModel.increment(for: item)
-                    orderManager.addToOrder(item)
+                    orderVM.addToOrder(item)
                 }label:{
                     Image(systemName: "plus.circle.fill")
                         .plusModify()
