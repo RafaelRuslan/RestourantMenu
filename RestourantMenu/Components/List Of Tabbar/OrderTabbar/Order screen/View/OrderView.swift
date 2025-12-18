@@ -12,7 +12,7 @@ struct OrderView: View {
     
     @Environment(\.modelContext) private var modelContext
     
-    @EnvironmentObject private var order : OrderViewModel
+    let orderVM: OrderViewModel
     
     @State private var navigateToHistory = false
     
@@ -20,16 +20,21 @@ struct OrderView: View {
     
     @Query private var model: [SwiftDataModel]
     
+    init(orderVM: OrderViewModel) {
+        self.orderVM = orderVM
+    }
+    
     
     var body: some View {
-        NavigationStack{
+//        NavigationStack{
             VStack {
-                List {
-                    if order.selectedItems.isEmpty {
-                        Text("No orders yet.")
-                            .foregroundStyle(.gray)
+                Spacer()
+                if orderVM.selectedItems.isEmpty {
+                    Text("No orders yet.")
+                        .foregroundStyle(.gray)
                     } else {
-                        ForEach(order.selectedItems) { item in
+                        List {
+                        ForEach(orderVM.selectedItems) { item in
                             HStack(spacing: 12) {
                                 Image(item.imageName)
                                     .resizable()
@@ -40,7 +45,9 @@ struct OrderView: View {
                                 VStack(alignment: .leading) {
                                     Text(item.name)
                                         .font(.headline)
+                                    
                                     Text("x\(item.amount)")
+                                    
                                     Text("\(item.originalPrice, format: .currency(code: "USD"))")
                                         .foregroundStyle(.secondary)
                                 }
@@ -50,45 +57,36 @@ struct OrderView: View {
                         .onDelete(perform: deleteItems)
                     }
                 }
+                Spacer()
                 Button("History") {
-                    order.saveOrder(modelContext: modelContext)
+                    orderVM.saveOrder(modelContext: modelContext)
                     navigateToHistory = true
                 }
-                .buttonStyle(.borderedProminent)
-                .padding()
+                .inputModifier()
                 
                 HStack {
                     Text("Total price:")
                         .font(.headline)
                     
                     Spacer()
-                    Text("\(order.total, format: .currency(code: "usd"))")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.black)
+                    Text("\(orderVM.total, format: .currency(code: "usd"))")
+                        .fontModifier(size: 12, weight: .bold, foregroundColor: .colorBlack)
                 }
                 .padding()
                 .background(Color(.systemGray6))
                 .navigationDestination(isPresented: $navigateToHistory) {
-                    HistoryView()
+                    HistoryView(orderVM: orderVM)
                         .environment(\.modelContext, modelContext)
                 }
                 .hidden()
             }
-        }
     }
-    private func deleteItems(at offsets: IndexSet){
-        for index in offsets{
-            let orderDelete = model[index]
-            modelContext.delete(orderDelete)
-        }
-        do{
-            try? modelContext.save()
-        }
+    private func deleteItems(at offsets: IndexSet) {
+        orderVM.selectedItems.remove(atOffsets: offsets)
     }
 }
 
-#Preview {
-    OrderView()
-        .environmentObject(OrderViewModel())
-}
+//#Preview {
+//    OrderView()
+//        .environmentObject(OrderViewModel())
+//}

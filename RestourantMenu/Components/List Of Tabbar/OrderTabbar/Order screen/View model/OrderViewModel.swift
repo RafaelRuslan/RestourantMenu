@@ -11,6 +11,9 @@ import SwiftUI
 @Observable
 class OrderViewModel: ObservableObject {
     var selectedItems: [MenuModel] = []
+    
+    var orderItem: [SwiftDataModel] = []
+    
     var totalSpent = 0.0
     
     var language = "az"
@@ -37,6 +40,7 @@ class OrderViewModel: ObservableObject {
                 date: .now,
             )
             modelContext.insert(expense)
+            orderItem.append(expense)
         }
         do {
             try modelContext.save()
@@ -45,10 +49,21 @@ class OrderViewModel: ObservableObject {
         }
     }
 
-    func deleteItems(at offsets: IndexSet) {
-        selectedItems.remove(atOffsets: offsets)
-    }
-
+    func deleteOrder(_ order: SwiftDataModel, modelContext: ModelContext) {
+           if let index = orderItem.firstIndex(where: { $0.id == order.id }) {
+               orderItem.remove(at: index)
+           }
+           if let selectedIndex = selectedItems.firstIndex(where: { $0.id == order.id }) {
+               selectedItems.remove(at: selectedIndex)
+           }
+           modelContext.delete(order)
+           try? modelContext.save()
+       }
+       
+       func deleteItems(at offsets: IndexSet) {
+           selectedItems.remove(atOffsets: offsets)
+       }
+    
     func cleanOrder() {
         selectedItems.removeAll()
     }

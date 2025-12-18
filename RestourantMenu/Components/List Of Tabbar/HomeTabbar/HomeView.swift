@@ -9,7 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
         
-    @EnvironmentObject private var loginVM: LoginViewModel
+//    @EnvironmentObject private var loginVM: LoginViewModel
+    
+    @StateObject private var loginVM = LoginViewModel()
 
     var body: some View {
         ZStack{
@@ -37,6 +39,6 @@ struct HomeView: View {
         }
     }
 }
-#Preview {
-    HomeView()
-}
+//#Preview {
+//    HomeView()
+//}

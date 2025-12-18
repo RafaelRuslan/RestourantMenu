@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct NameDetailView: View {
-    @Binding var profile: ProfileModel
+   
+    @Binding var name: String
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         
         ScrollView{
             VStack(spacing: 20) {
-                TextField("Enter new name...", text: $profile.name)
+                TextField("Enter new name...", text: $name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
                 

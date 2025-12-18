@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct EmailView: View {
-    @Binding var profile: ProfileModel
-    @Environment(\.dismiss) private var dismiss
     
+    @Binding var email: String
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
         ScrollView{
             VStack(spacing: 20) {
@@ -18,7 +19,7 @@ struct EmailView: View {
                 Text("Change email")
                     .font(.headline)
                 
-                TextField("Enter mail", text: $profile.name)
+                TextField("Enter mail", text: $email)
                     .keyboardType(.emailAddress)
                     .textFieldStyle(.roundedBorder)
                     .padding()
@@ -27,9 +28,16 @@ struct EmailView: View {
                     dismiss()
                 }label: {
                     Text("Save")
-                        .infoStyle()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 45)
+                        .font(.system(size: 18, weight: .semibold))
+                    
+                    
                 }
-                Spacer()
+                
+                .primaryActionModifier()
+                .clipShape(RoundedRectangle(cornerRadius: 14))
+                .padding()
             }
             .navigationBarBackButtonHidden()
             .toolbar{
@@ -53,4 +61,8 @@ struct EmailView: View {
             }
         }
     }
+}
+
+#Preview {
+    EmailView(email: .constant("test21"))
 }

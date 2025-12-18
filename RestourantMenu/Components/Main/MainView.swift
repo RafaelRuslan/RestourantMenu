@@ -9,46 +9,48 @@ import SwiftUI
 import SwiftData
 
 struct MainView: View {
-    @StateObject var orderViewModel = OrderViewModel()
-    @Environment(\.modelContext) var context
-    @State private var index = 0
     
+    let orderVM: OrderViewModel
+    
+    @Environment(\.modelContext) var context
+    
+    @State private var index = 0
+            
     let loginVM: LoginViewModel
     
-    init(loginVM: LoginViewModel){
+    init(loginVM: LoginViewModel, orderVM: OrderViewModel, profile: ProfileModel){
         self.loginVM = loginVM
+        self.orderVM = orderVM
+
     }
     
     var body: some View {
             TabView(selection: $index){
                 HomeView()
                     .tag(0)
-                    .environmentObject(loginVM)
                     .tabItem{
                         Label("Home",
                               systemImage: "house.fill"
                         )
                     }
-                MenuView()
+                MenuView(orderVM: orderVM)
                     .tag(1)
-                    .environmentObject(orderViewModel)
                     .tabItem {
                         Label("Menu",
                               systemImage: "menucard"
+
                         )
                         
                     }
                 SearchView()
                     .tag(2)
-                    .environmentObject(orderViewModel)
                     .tabItem {
                         Label("Search",
                               systemImage: "magnifyingglass"
                         )
                     }
-                OrderView()
+                OrderView(orderVM: orderVM)
                     .tag(3)
-                    .environmentObject(orderViewModel)
                     .tabItem {
                         Label("Order",
                               systemImage: "cart.fill.badge.plus"
@@ -78,10 +80,4 @@ struct MainView: View {
             }
         }
     }
-}
-
-#Preview {
-    MainView(loginVM: LoginViewModel())
-        .environmentObject(OrderViewModel())
-        .environmentObject(LoginViewModel())
 }
