@@ -64,6 +64,9 @@ class OrderViewModel: ObservableObject {
            selectedItems.remove(atOffsets: offsets)
        }
     
+//    func deleteItems(at offsets: IndexSet) {
+//        selectedItems.remove(atOffsets: offsets)
+//    }
     func cleanOrder() {
         selectedItems.removeAll()
     }
