@@ -13,7 +13,10 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             List{
-                    ForEach(viewModel.filteredItems){ item in
+                ForEach(viewModel.filteredItems){ item in
+                    NavigationLink{
+                        DetailsScreen(item: item)
+                    }label:{
                         HStack{
                             Image(item.imageName)
                                 .resizable()
@@ -24,6 +27,7 @@ struct SearchView: View {
                         }
                     }
                 }
+            }
             .overlay{
                 if viewModel.filteredItems.isEmpty{
                     VStack(spacing: 10){

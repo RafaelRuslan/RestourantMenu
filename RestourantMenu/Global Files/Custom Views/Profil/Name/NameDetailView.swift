@@ -24,9 +24,13 @@ struct NameDetailView: View {
                     dismiss()
                 }label:{
                     Text("Save")
-                        .infoStyle()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 45)
+                        .font(.system(size: 18, weight: .semibold))
                 }
-                Spacer()
+                .primaryActionModifier()
+                .clipShape(RoundedRectangle(cornerRadius: 14))
+                .padding()
             }
             .navigationBarBackButtonHidden()
             .padding()

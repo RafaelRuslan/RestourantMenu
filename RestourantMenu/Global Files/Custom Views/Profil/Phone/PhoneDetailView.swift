@@ -23,9 +23,13 @@ struct PhoneDetailView: View {
                     dismiss()
                 }label:{
                     Text("Save")
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 45)
+                        .font(.system(size: 18, weight: .semibold))
                 }
-                .infoStyle()
-                Spacer()
+                .primaryActionModifier()
+                .clipShape(RoundedRectangle(cornerRadius: 14))
+                .padding()
             }
             .navigationBarBackButtonHidden()
             .toolbar {

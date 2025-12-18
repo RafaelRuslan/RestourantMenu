@@ -16,8 +16,6 @@ struct OrderView: View {
     
     @State private var navigateToHistory = false
     
-    @State private var isSelected = false
-    
     @Query private var model: [SwiftDataModel]
     
     init(orderVM: OrderViewModel) {
@@ -32,37 +30,61 @@ struct OrderView: View {
                 if orderVM.selectedItems.isEmpty {
                     Text("No orders yet.")
                         .foregroundStyle(.gray)
+                        .font(.title2)
+                    
+                    Image(systemName: "basket.fill")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 60, height: 60)
+                        .foregroundStyle(.colorAccent)
                     } else {
-                        List {
+                        List{
                         ForEach(orderVM.selectedItems) { item in
-                            HStack(spacing: 12) {
-                                Image(item.imageName)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 60, height: 60)
-                                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                                
-                                VStack(alignment: .leading) {
-                                    Text(item.name)
-                                        .font(.headline)
+                            NavigationLink{
+                                DetailsScreen(item: item)
+                            }label:{
+                                HStack(spacing: 12) {
+                                    Image(item.imageName)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 60, height: 60)
+                                        .clipShape(RoundedRectangle(cornerRadius: 8))
                                     
-                                    Text("x\(item.amount)")
-                                    
-                                    Text("\(item.originalPrice, format: .currency(code: "USD"))")
-                                        .foregroundStyle(.secondary)
+                                    VStack(alignment: .leading) {
+                                        Text(item.name)
+                                            .font(.headline)
+                                        
+                                        Text("x\(item.amount)")
+                                        
+                                        Text("\(item.originalPrice, format: .currency(code: "USD"))")
+                                            .foregroundStyle(.secondary)
+                                    }
                                 }
                             }
                             
                         }
-                        .onDelete(perform: deleteItems)
+                       
+                        .onDelete { indexSet in
+                            orderVM.deleteItems(at: indexSet)
+                        }
                     }
                 }
                 Spacer()
-                Button("History") {
+                Button {
                     orderVM.saveOrder(modelContext: modelContext)
                     navigateToHistory = true
+                }label:{
+                    Text("History")
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 45)
+                        .font(.system(size: 18, weight: .semibold))
+                    
+                    
                 }
-                .inputModifier()
+                .primaryActionModifier()
+                .clipShape(RoundedRectangle(cornerRadius: 14))
+                .padding()
+                
                 
                 HStack {
                     Text("Total price:")
@@ -80,13 +102,9 @@ struct OrderView: View {
                 }
                 .hidden()
             }
-    }
-    private func deleteItems(at offsets: IndexSet) {
-        orderVM.selectedItems.remove(atOffsets: offsets)
+            .onAppear{
+                orderVM.saveOrder(modelContext: modelContext)
+            }
     }
 }
 
-//#Preview {
-//    OrderView()
-//        .environmentObject(OrderViewModel())
-//}
