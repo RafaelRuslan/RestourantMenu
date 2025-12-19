@@ -10,13 +10,16 @@ import SwiftUI
 struct SearchView: View {
     @StateObject var viewModel = MenuViewModel()
     
+    let orderVM: OrderViewModel
+    
     var body: some View {
         NavigationView {
             List{
                 ForEach(viewModel.filteredItems){ item in
                     NavigationLink{
-                        DetailsScreen(item: item)
-                    }label:{
+                        DetailsScreen(item: item, order: orderVM, showOrderButton: true)
+                            
+                    } label:{
                         HStack{
                             Image(item.imageName)
                                 .resizable()
@@ -26,8 +29,11 @@ struct SearchView: View {
                                 .fontDesign(.serif)
                         }
                     }
+                    
                 }
+               
             }
+            .listStyle(.plain)
             .overlay{
                 if viewModel.filteredItems.isEmpty{
                     VStack(spacing: 10){
@@ -59,6 +65,6 @@ struct SearchView: View {
     }
 }
 
-#Preview {
-    SearchView()
-}
+//#Preview {
+//    SearchView()
+//}

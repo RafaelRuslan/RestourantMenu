@@ -18,19 +18,20 @@ struct AboutView: View {
                     .bold()
             }
             Section(header: Text("Version")) {
-                Text("3.34.11")
+                Text("4.1.0")
             }
             Section(header: Text("Developer")) {
-                VStack(alignment: .leading) {
+                
                     Text("Developed by Rafael Agayev")
-                    Text("E-mail: rafaretti2021@gmail.com")
-                    Text("Linkedin: Rafael Agayev")
-                }
-                .font(.footnote)
-                .bold()
+                    
+                    Link("Instagram: RafaelAgayev", destination: URL(string: "https://www.instagram.com/r.a_rus")!)
+                    
+                    Link("Linkedin: Rafael Agayev", destination: URL(string: "https://www.linkedin.com/rafaelagayev")!)
+               
             }
             Section{
                 Link("Privacy Policy", destination: URL(string: "https://google.com/privacy")!)
+                
                 Link("Terms of Use", destination: URL(string: "https://google.com/terms")!)
             }
         }

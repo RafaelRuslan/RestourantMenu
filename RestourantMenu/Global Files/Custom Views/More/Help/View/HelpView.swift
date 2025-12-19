@@ -8,21 +8,32 @@
 import SwiftUI
 
 struct HelpView: View {
+    
     @Environment(\.dismiss) private var dismiss
     
+    @StateObject private var vm = HelpViewModel()
+    
     var body: some View {
+        
         List{
+            
             Section(header: Text("About the App")) {
-                Text("This app allows you to browse our full restourant menu, view descriptions, and mark your favorite dishes.")
+                
+                Text(vm.thisApp)
             }
             Section(header: Text("Using the App")) {
-                Text("🔍 Search: Use the search bar to find dishes by name or ingredients.")
-                Text("♥️ Favorites: Tap the heart icon to save dishes you love.")
-                Text("📦 Details: Tap a dish to view full information.")
+                
+                Text(vm.searchApp)
+                
+                Text(vm.favApp)
+                
+                Text(vm.detailsApp)
             }
             Section(header: Text("Need Help?")) {
-                Text("If something isn't working, check your internet connection or contact us.")
-                Text("📬 rafaretti2021@gmail.com")
+                
+                Text(vm.connectionProblemApp)
+                
+                Link("Gmail: Rafael Agayev", destination: URL(string: vm.mailApp)!)
             }
         }
         .navigationBarBackButtonHidden()

@@ -10,15 +10,12 @@ import SwiftUI
 struct EmailView: View {
     
     @Binding var email: String
+    
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         ScrollView{
             VStack(spacing: 20) {
-                
-                Text("Change email")
-                    .font(.headline)
-                
                 TextField("Enter mail", text: $email)
                     .keyboardType(.emailAddress)
                     .textFieldStyle(.roundedBorder)
@@ -31,10 +28,7 @@ struct EmailView: View {
                         .frame(maxWidth: .infinity)
                         .frame(height: 45)
                         .font(.system(size: 18, weight: .semibold))
-                    
-                    
                 }
-                
                 .primaryActionModifier()
                 .clipShape(RoundedRectangle(cornerRadius: 14))
                 .padding()
@@ -58,6 +52,7 @@ struct EmailView: View {
                 dismiss()
             }label: {
                 Image(systemName: "chevron.left")
+                    .foregroundStyle(.colorBlack)
             }
         }
     }

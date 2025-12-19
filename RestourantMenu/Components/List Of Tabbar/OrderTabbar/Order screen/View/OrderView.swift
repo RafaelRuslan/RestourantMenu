@@ -18,6 +18,8 @@ struct OrderView: View {
     
     @Query private var model: [SwiftDataModel]
     
+    @Environment(\.dismiss) private var dismiss
+    
     init(orderVM: OrderViewModel) {
         self.orderVM = orderVM
     }
@@ -41,7 +43,7 @@ struct OrderView: View {
                         List{
                         ForEach(orderVM.selectedItems) { item in
                             NavigationLink{
-                                DetailsScreen(item: item)
+                                DetailsScreen(item: item, order: orderVM, showOrderButton: false)
                             }label:{
                                 HStack(spacing: 12) {
                                     Image(item.imageName)
@@ -105,6 +107,21 @@ struct OrderView: View {
             .onAppear{
                 orderVM.saveOrder(modelContext: modelContext)
             }
+            .navigationBarBackButtonHidden()
+            .toolbar {
+                toolbar
+            }
+    }
+    @ToolbarContentBuilder
+    private var toolbar: some ToolbarContent{
+        ToolbarItem(placement: .topBarLeading) {
+            Button{
+                dismiss()
+            }label: {
+                Image(systemName: "chevron.left")
+                    .foregroundStyle(.colorBlack)
+            }
+        }
     }
 }
 
