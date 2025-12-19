@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-        
-//    @EnvironmentObject private var loginVM: LoginViewModel
-    
+            
     @StateObject private var loginVM = LoginViewModel()
 
     var body: some View {
@@ -21,6 +19,11 @@ struct HomeView: View {
                 HStack{
                     Image(systemName: "hand.draw.fill")
                         .foregroundStyle(.colorAccent)
+                        .rotationEffect(.degrees(loginVM.isAnimated ? 10 : -10))
+                        .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true), value: loginVM.isAnimated)
+                        .onAppear {
+                            loginVM.isAnimated = true
+                        }
                     Text("\(loginVM.name)")
                         .italic()
                         .kerning(2)
@@ -39,6 +42,3 @@ struct HomeView: View {
         }
     }
 }
-//#Preview {
-//    HomeView()
-//}

@@ -29,6 +29,8 @@ class LoginViewModel: ObservableObject {
     
     @Published var phone: String = "1234334"
     
+    @Published var isAnimated = false
+    
     
     init(){
         self.user = Auth.auth().currentUser

@@ -10,7 +10,9 @@ import SwiftUI
 struct MenuItemRowView: View {
     
     let orderVM: OrderViewModel
+    
     var item: MenuModel
+    
     @ObservedObject var viewModel: MenuViewModel
     
     init(orderVM: OrderViewModel, item: MenuModel, viewModel: MenuViewModel) {
@@ -27,16 +29,20 @@ struct MenuItemRowView: View {
             VStack(alignment: .leading, spacing: 4){
                 Text(item.name)
                     .font(.headline)
+                    .lineLimit(1)
                 HStack{
                     if let discount = item.discountedPrice {
                         Text("\(item.originalPrice, format: .currency(code: "USD"))")
                             .priceModify()
+                            .lineLimit(1)
                         Text("\(discount, format: .currency(code: "USD"))")
-                            .foregroundStyle(.red)
-                            .fontWeight(.bold)
+                            .foregroundStyle(.colorRedOpacity)
+                            .fontWeight(.semibold)
+                            .lineLimit(1)
                     }else{
                         Text("\(item.originalPrice, format: .currency(code: "USD"))")
                             .fontWeight(.bold)
+                            .lineLimit(1)
                     }
                 }
             }

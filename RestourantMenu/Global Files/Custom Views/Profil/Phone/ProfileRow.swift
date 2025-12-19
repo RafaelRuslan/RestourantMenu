@@ -34,6 +34,7 @@ struct ProfileRow: View {
                 dismiss()
             }label:{
                 Image(systemName: "chevron.left")
+                    .foregroundStyle(.colorBlack)
             }
         }
     }

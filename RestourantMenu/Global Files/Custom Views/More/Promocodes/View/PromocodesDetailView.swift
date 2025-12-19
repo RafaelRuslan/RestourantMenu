@@ -9,45 +9,38 @@ import SwiftUI
 
 struct PromocodesDetailView: View {
     
-    @State private var promocode : String = ""
-    
-    @State private var message: String = ""
-    
     @Environment(\.dismiss) private var dismiss
     
-    @State private var enterButton: Bool = false
+    @StateObject private var vm = PromocodeViewModel()
     
     var body: some View {
         
         ScrollView{
             VStack(spacing: 20) {
-                Text("Enter Promocode")
-                    .font(.headline)
                 
-                TextField("Enter promocodes", text: $promocode)
+                TextField("Enter promocodes", text: $vm.promocode)
                     .textFieldModifier()
-                    .onChange(of: promocode) {
-                           enterButton = !promocode.trimmingCharacters(in: .whitespaces).isEmpty
+                    .textInputAutocapitalization(.never)
+                    .onChange(of: vm.promocode) {
+                        vm.enterButton = !vm.promocode.trimmingCharacters(in: .whitespaces).isEmpty
                        }
                 
-                Button("Enter"){
-                    if promocode.uppercased() == "SALAM2024" || promocode.lowercased() == "ruslan2023"{
-                        message = "Promocode accepted 🎉"
-                    }else{
-                        message = "wrong promocode ‼️"
-                    }
+                Button{
+                    vm.promoProblem()
+                }label: {
+                    Text("Enter")
                 }
-                .foregroundStyle(.white)
+                .foregroundStyle(.colorWhite)
                 .background(
-                    Color.blue
+                    Color.colorAccent
                         .frame(width: 200, height: 41)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         .shadow(radius: 1.2)
                 )
-                .disabled(!enterButton)
-                .opacity(enterButton ? 1 : 0.5)
+                .disabled(!vm.enterButton)
+                .opacity(vm.enterButton ? 1 : 0.5)
                 
-                Text(message)
+                Text(vm.message)
                     .foregroundStyle(.gray)
                     .padding()
                 
@@ -72,6 +65,7 @@ struct PromocodesDetailView: View {
                 dismiss()
             }label: {
                 Image(systemName: "chevron.left")
+                    .foregroundStyle(.colorBlack)
             }
         }
     }

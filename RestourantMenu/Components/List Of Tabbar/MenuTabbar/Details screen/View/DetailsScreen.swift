@@ -11,9 +11,17 @@ struct DetailsScreen: View {
     
     var item: MenuModel
     
+    let order: OrderViewModel
+    
+    @State var showOrderButton = false
+
+    
+    @StateObject private var vm = DetailsViewModel()
+    
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
+        
         ScrollView{
             VStack(alignment: .leading, spacing: 16) {
                 Image(item.imageName)
@@ -37,6 +45,21 @@ struct DetailsScreen: View {
                             .fontModifier(size: 15, weight: .semibold, foregroundColor: .colorBlack)
                             .lineLimit(1)
                     }
+                    
+                    if showOrderButton{
+                        Button{
+                            order.addToOrder(item)
+                            vm.navigateToOrder = true
+                        }label: {
+                            Text("+ Buy")
+                                .foregroundStyle(.colorWhite)
+                        }
+                        .background(
+                            Color.colorRedOpacity
+                                .roundedCorners(cornerRadius: 12)
+                                .frame(width: 65, height: 25)
+                        )
+                    }
                 }
                 Spacer()
             }
@@ -45,6 +68,9 @@ struct DetailsScreen: View {
             .toolbar {
                 toolbar
             }
+        }
+        .navigationDestination(isPresented: $vm.navigateToOrder) {
+            OrderView(orderVM: order)
         }
     }
     @ToolbarContentBuilder

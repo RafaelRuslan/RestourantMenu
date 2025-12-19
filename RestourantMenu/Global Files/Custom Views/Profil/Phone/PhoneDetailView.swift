@@ -17,8 +17,10 @@ struct PhoneDetailView: View {
         ScrollView{
             VStack(spacing: 20) {
                 TextField("Enter phone number", text: $phone)
+                    .padding(.top, 10)
                     .keyboardType(.phonePad)
                     .textFieldStyle(.roundedBorder)
+                    .padding()
                 Button{
                     dismiss()
                 }label:{

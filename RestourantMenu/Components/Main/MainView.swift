@@ -42,7 +42,7 @@ struct MainView: View {
                         )
                         
                     }
-                SearchView()
+                SearchView(orderVM: orderVM)
                     .tag(2)
                     .tabItem {
                         Label("Search",

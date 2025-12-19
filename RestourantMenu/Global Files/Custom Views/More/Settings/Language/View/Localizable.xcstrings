@@ -10,7 +10,11 @@
     "%lld" : {
 
     },
+    "+ Buy" : {
+
+    },
     "♥️ Favorites: Tap the heart icon to save dishes you love." : {
+      "extractionState" : "stale",
       "localizations" : {
         "az" : {
           "stringUnit" : {
@@ -21,6 +25,7 @@
       }
     },
     "📦 Details: Tap a dish to view full information." : {
+      "extractionState" : "stale",
       "localizations" : {
         "az" : {
           "stringUnit" : {
@@ -31,6 +36,7 @@
       }
     },
     "📬 rafaretti2021@gmail.com" : {
+      "extractionState" : "stale",
       "localizations" : {
         "az" : {
           "stringUnit" : {
@@ -41,6 +47,7 @@
       }
     },
     "🔍 Search: Use the search bar to find dishes by name or ingredients." : {
+      "extractionState" : "stale",
       "localizations" : {
         "az" : {
           "stringUnit" : {
@@ -51,6 +58,7 @@
       }
     },
     "3.34.11" : {
+      "extractionState" : "stale",
       "localizations" : {
         "az" : {
           "stringUnit" : {
@@ -59,6 +67,9 @@
           }
         }
       }
+    },
+    "4.1.0" : {
+
     },
     "About" : {
       "localizations" : {
@@ -112,6 +123,7 @@
       }
     },
     "Change email" : {
+      "extractionState" : "manual",
       "localizations" : {
         "az" : {
           "stringUnit" : {
@@ -204,6 +216,7 @@
       }
     },
     "E-mail: rafaretti2021@gmail.com" : {
+      "extractionState" : "manual",
       "localizations" : {
         "az" : {
           "stringUnit" : {
@@ -298,6 +311,7 @@
       }
     },
     "Enter Promocode" : {
+      "extractionState" : "manual",
       "localizations" : {
         "az" : {
           "stringUnit" : {
@@ -316,6 +330,9 @@
           }
         }
       }
+    },
+    "Gmail: Rafael Agayev" : {
+
     },
     "Help" : {
       "localizations" : {
@@ -348,6 +365,7 @@
       }
     },
     "If something isn't working, check your internet connection or contact us." : {
+      "extractionState" : "stale",
       "localizations" : {
         "az" : {
           "stringUnit" : {
@@ -367,6 +385,9 @@
           }
         }
       }
+    },
+    "Instagram: RafaelAgayev" : {
+
     },
     "Lana Dining & Lounge" : {
       "localizations" : {
@@ -712,6 +733,7 @@
       }
     },
     "This app allows you to browse our full restourant menu, view descriptions, and mark your favorite dishes." : {
+      "extractionState" : "stale",
       "localizations" : {
         "az" : {
           "stringUnit" : {

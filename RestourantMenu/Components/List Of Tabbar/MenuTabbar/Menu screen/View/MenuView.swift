@@ -54,7 +54,7 @@ struct MenuView: View {
                         LazyVStack{
                             ForEach(viewModel.items.filter { $0.category == selectedCategory }) { item in
                                 NavigationLink {
-                                    DetailsScreen(item: item)
+                                    DetailsScreen(item: item, order: orderVM, showOrderButton: true)
                                        
                                 }label:{
                                     MenuItemRowView(orderVM: orderVM, item: item, viewModel: viewModel)
