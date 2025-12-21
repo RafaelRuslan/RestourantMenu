@@ -23,6 +23,7 @@ struct AccountView: View {
                         HStack{
                             Image(systemName: "person.fill")
                                 .font(.title3)
+                                .foregroundStyle(.colorBlack)
                             Text(loginVM.name)
                                 .font(.title3)
                                 .foregroundStyle(.colorBlack)
@@ -34,6 +35,7 @@ struct AccountView: View {
                         HStack{
                             Image(systemName: "phone.fill")
                                 .font(.title3)
+                                .foregroundStyle(.colorBlack)
                             Text(loginVM.phone)
                                 .font(.title3)
                                 .foregroundStyle(.colorBlack)
@@ -47,6 +49,7 @@ struct AccountView: View {
                         HStack{
                             Image(systemName: "person.fill")
                                 .font(.title3)
+                                .foregroundStyle(.colorBlack)
                             Text(loginVM.email)
                                 .font(.title3)
                                 .foregroundStyle(.colorBlack)
@@ -61,6 +64,7 @@ struct AccountView: View {
                         HStack{
                             Image(systemName: "rectangle.and.pencil.and.ellipsis")
                                 .font(.title3)
+                                .foregroundStyle(.colorBlack)
                             Text("Promocodes")
                                 .font(.title3)
                                 .foregroundStyle(.colorBlack)
@@ -73,6 +77,7 @@ struct AccountView: View {
                         HStack{
                             Image(systemName: "gear")
                                 .font(.title3)
+                                .foregroundStyle(.colorBlack)
                             Text("Settings")
                                 .font(.title3)
                                 .foregroundStyle(.colorBlack)
@@ -86,6 +91,7 @@ struct AccountView: View {
                         HStack{
                             Image(systemName: "newspaper.fill")
                                 .font(.title3)
+                                .foregroundStyle(.colorBlack)
                             Text("About")
                                 .font(.title3)
                                 .foregroundStyle(.colorBlack)
@@ -98,6 +104,7 @@ struct AccountView: View {
                         HStack{
                             Image(systemName: "questionmark.circle.fill")
                                 .font(.title3)
+                                .foregroundStyle(.colorBlack)
                             Text("Help")
                                 .font(.title3)
                                 .foregroundStyle(.colorBlack)
