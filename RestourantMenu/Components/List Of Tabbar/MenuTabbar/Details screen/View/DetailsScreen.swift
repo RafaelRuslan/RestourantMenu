@@ -15,6 +15,7 @@ struct DetailsScreen: View {
     
     @State var showOrderButton = false
 
+   @State private var showZoomImage = false
     
     @StateObject private var vm = DetailsViewModel()
     
@@ -28,6 +29,13 @@ struct DetailsScreen: View {
                     .resizable()
                     .scaledToFit()
                     .clipShape(RoundedRectangle(cornerRadius: 14))
+                    .onTapGesture {
+                        showZoomImage = true
+                    }
+                    .fullScreenCover(isPresented: $showZoomImage) {
+                        ZoomImageScreen(imageName: item.imageName)
+
+                    }
                 HStack(spacing: 15){
                     Text(item.name)
                         .fontModifier(size: 15, weight: .semibold, foregroundColor: .colorBlack)
