@@ -42,8 +42,6 @@ class MenuViewModel: ObservableObject{
             MenuModel(id: UUID(uuidString: "00000000-0000-0000-0000-000000000009") ?? UUID(), imageName: "Cheesy Italian Stromboli", name: "Cheesy Italian Stromboli", originalPrice: 21.99, discountedPrice: nil, amount: 0, category: .food),
             MenuModel(id: UUID(uuidString: "00000000-0000-0000-0000-000000000010") ?? UUID(), imageName: "Bucatrini Amatricana", name: "Bucatrini Amatricana", originalPrice: 9.99, discountedPrice: 8.99, amount: 0, category: .food),
             
-            
-            
             MenuModel(id: UUID(uuidString: "00000000-0000-0000-0000-000000000011") ?? UUID(), imageName: "Strawberry Mojito", name: "Strawberry Mojito", originalPrice: 4.99, discountedPrice: 2.89, amount: 0, category: .drinks),
             MenuModel(id: UUID(uuidString: "00000000-0000-0000-0000-000000000012") ?? UUID(), imageName: "Watermelon Mojito", name: "Watermelon Mojito", originalPrice: 5.59, discountedPrice: 3.39, amount: 0, category: .drinks),
             MenuModel(id: UUID(uuidString: "00000000-0000-0000-0000-000000000013") ?? UUID(), imageName: "Cola Classic", name: "Coca-Cola Classic 0.33 ml", originalPrice: 0.5, discountedPrice: nil, amount: 0, category: .drinks),
@@ -51,8 +49,6 @@ class MenuViewModel: ObservableObject{
             MenuModel(id: UUID(uuidString: "00000000-0000-0000-0000-000000000015") ?? UUID(), imageName: "Fanta Classic", name: "Fanta Classic 0.33 ml", originalPrice: 0.88, discountedPrice: nil, amount: 0, category: .drinks),
             MenuModel(id: UUID(uuidString: "00000000-0000-0000-0000-000000000016") ?? UUID(), imageName: "Fanta Lemon", name: "Fanta Lemon 0.33 ml", originalPrice: 0.6, discountedPrice: nil, amount: 0, category: .drinks),
             MenuModel(id: UUID(uuidString: "00000000-0000-0000-0000-000000000017") ?? UUID(), imageName: "Fanta Grape", name: "Fanta Grape", originalPrice: 0.79, discountedPrice: nil, amount: 0, category: .drinks),
-            
-            
             
             MenuModel(id: UUID(uuidString: "00000000-0000-0000-0000-000000000018") ?? UUID(), imageName: "Gaillac Wine", name: "Gaillac", originalPrice: 299, discountedPrice: nil, amount: 0, category: .wines),
             MenuModel(id: UUID(uuidString: "00000000-0000-0000-0000-000000000019") ?? UUID(), imageName: "Le Tour Wine", name: "Le Tour", originalPrice: 279, discountedPrice: nil, amount: 0, category: .wines),

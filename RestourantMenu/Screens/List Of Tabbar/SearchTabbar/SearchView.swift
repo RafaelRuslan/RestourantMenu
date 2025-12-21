@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
+    
     @StateObject var viewModel = MenuViewModel()
     
     let orderVM: OrderViewModel
@@ -64,7 +65,3 @@ struct SearchView: View {
         }
     }
 }
-
-//#Preview {
-//    SearchView()
-//}

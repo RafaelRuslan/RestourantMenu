@@ -18,6 +18,8 @@ class OrderViewModel: ObservableObject {
     
     var language = "az"
     
+    var total: Double = 0
+    
     func addToOrder(_ item: MenuModel) {
         if let index = selectedItems.firstIndex(where: { $0.id == item.id }) {
             selectedItems[index].amount += 1
@@ -64,17 +66,7 @@ class OrderViewModel: ObservableObject {
            selectedItems.remove(atOffsets: offsets)
        }
     
-//    func deleteItems(at offsets: IndexSet) {
-//        selectedItems.remove(atOffsets: offsets)
-//    }
     func cleanOrder() {
         selectedItems.removeAll()
-    }
-
-    var total: Double {
-        selectedItems.reduce(0) { result, item in
-            let price = item.discountedPrice ?? item.originalPrice
-            return result + price * Double(item.amount)
-        }
     }
 }
