@@ -10,10 +10,10 @@ import SwiftUI
 struct ZoomImageScreen: View {
     
     let imageName: String
-    
-    @State private  var scale: CGFloat = 1.0
-    
+
     @Environment(\.dismiss) private var dismiss
+    
+    @StateObject private var zoomVM = ZoomImageViewModel()
     
     var body: some View {
         GeometryReader{ geo in
@@ -24,16 +24,18 @@ struct ZoomImageScreen: View {
                     .resizable()
                     .scaledToFill()
                     .frame(maxWidth: geo.size.width, maxHeight: geo.size.height)
-                    .scaleEffect(scale)
+                    .scaleEffect(zoomVM.scale)
                     .gesture(
+                        
                         MagnificationGesture()
-                            .onChanged{ value in
-                                scale = value
+                            .onChanged{ zoomVM.scale = $0
                             }
                             .onEnded{ _ in
-                                withAnimation(.spring()) { scale = 1}
+                                withAnimation(.spring()) { zoomVM.scale = 1}
                             }
                     )
+                        
+                    .shadow(radius: 10)
                 VStack{
                     HStack{
                         Spacer()

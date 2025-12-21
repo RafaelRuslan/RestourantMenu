@@ -8,8 +8,6 @@
 import Foundation
 
 class DetailsViewModel: ObservableObject{
-    
-    @Published var showOrderButton = false
-    
+        
     @Published var navigateToOrder = false
 }
