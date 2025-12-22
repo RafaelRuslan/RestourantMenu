@@ -14,6 +14,7 @@ struct PasswordSection: View {
     @FocusState private var focused: Focused?
     
     @Binding var password: String
+    
     var body: some View {
         HStack{
             if !showPassword{
@@ -31,7 +32,6 @@ struct PasswordSection: View {
                     .textInputAutocapitalization(.never)
                     .keyboardType(.asciiCapable)
                     .textContentType(.oneTimeCode)
-                    
                     .focused($focused, equals: .password)
                 
             }

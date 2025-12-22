@@ -14,6 +14,7 @@ struct LoginOrRegisterButton: View {
     @FocusState private var focus: Focused?
     
     var onRegister: () -> Void
+    
     var body: some View {
         
         HStack{
@@ -24,8 +25,7 @@ struct LoginOrRegisterButton: View {
                 Text("Sign in")
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
-                    .font(.system(size: 18, weight: .semibold))
-                
+                    .fontModifier(size: 18, weight: .semibold)
             }
             
             .primaryActionModifier()
@@ -37,9 +37,10 @@ struct LoginOrRegisterButton: View {
                 Text("Register")
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
-                    .font(.system(size: 18, weight: .semibold))
+                    .fontModifier(size: 18, weight: .semibold)
                 
             }
+            
             .primaryActionModifier()
             
         }

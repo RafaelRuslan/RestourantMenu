@@ -14,6 +14,7 @@ struct NameAndEmail: View {
     @FocusState private var focus: Focused?
     
     @Binding var email: String
+    
     var body: some View {
         
         TextField("Select your name", text: $name)
